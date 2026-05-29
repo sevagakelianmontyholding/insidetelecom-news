@@ -105,11 +105,7 @@
                         <div class="col-lg-3 col-md-6">
                               <aside class="widget widget_mc4wp_form_widget">
                                     <h4 class="widget-title">Newsletter</h4>
-                                    <p class="newsletter__text">
-                                          <i class="ui-email newsletter__icon"></i>
-                                          Subscribe for our daily news
-                                    </p>
-                                    <form class="mc4wp-form" method="post">
+                                    <!-- <form class="mc4wp-form" method="post">
                                           <div class="mc4wp-form-fields">
                                                 <div class="form-group">
                                                       <input type="email" name="EMAIL" placeholder="Your email" required="">
@@ -118,7 +114,10 @@
                                                       <input type="submit" class="btn btn-lg btn-color" value="Sign Up">
                                                 </div>
                                           </div>
-                                    </form>
+                                    </form> -->
+                                    <div>
+                                          <a class="libutton" href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7041337576191885312" target="_blank">Subscribe on LinkedIn</a>
+                                    </div>
                               </aside>
                         </div>
 
@@ -155,7 +154,7 @@
       </span>
 
 </a>
-<?php wp_footer();  ?>
+<?php wp_footer(); ?>
 </body>
 
 </html>

@@ -245,6 +245,22 @@ footer .socials--large a {
   transform: translateY(-3px) scale(1.04);
 }
 
+.libutton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7px;
+  text-align: center;
+  outline: none;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  width: 200px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #0a66c2;
+  font-family: "SF Pro Text", Helvetica, sans-serif;
+}
+
 /* Mobile */
 @media (max-width: 767px) {
   .sticky-whatsapp-channel {

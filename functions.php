@@ -969,7 +969,7 @@ function html5blank_styles()
     wp_register_style('theme-style-css', get_template_directory_uri() . '/css/style.css?v=1.0.1', array(), '1.0', 'all');
     wp_enqueue_style('theme-style-css'); // Enqueue it!
 
-    wp_register_style('my-style', get_template_directory_uri() . '/style.css?v=1.0.8', array(), '5.52', 'all');
+    wp_register_style('my-style', get_template_directory_uri() . '/style.css?v=1.0.9', array(), '5.52', 'all');
     wp_enqueue_style('my-style'); // Enqueue it!
 }
 
