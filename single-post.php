@@ -70,8 +70,14 @@ $prev_post = get_previous_post(true);
                                     <a class="social social-whatsapp" title="whatsapp" aria-label="whatsapp" href="https://api.whatsapp.com/send?text=<?= $url ?>" data-action="share/whatsapp/share" target="_blank">
                                         <i class="ui-whatsapp"></i>
                                     </a>
-                                    <a class="social social-facebook"
-                                        href="https://www.facebook.com/sharer/sharer.php?u=<?= esc_attr($url); ?>"
+                                    <?php
+                                    $facebook_desktop = 'https://www.facebook.com/sharer/sharer.php?u=' . $url;
+                                    $facebook_mobile = 'https://m.facebook.com/sharer/sharer.php?u=' . $url;
+                                    ?>
+
+                                    <a class="social social-facebook js-facebook-share"
+                                        href="<?= esc_url($facebook_desktop); ?>"
+                                        data-mobile-url="<?= esc_url($facebook_mobile); ?>"
                                         title="facebook"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -200,6 +206,22 @@ $prev_post = get_previous_post(true);
                 window.location.href = webUrl;
             }
         }, 1200);
+    });
+</script>
+
+<script>
+    document.addEventListener('click', function(event) {
+        const link = event.target.closest('.js-facebook-share');
+
+        if (!link) return;
+
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (!isMobile) return;
+
+        event.preventDefault();
+
+        window.open(link.getAttribute('data-mobile-url'), '_blank', 'noopener,noreferrer');
     });
 </script>
 <?php get_footer(); ?>
