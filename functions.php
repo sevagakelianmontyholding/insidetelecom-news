@@ -926,7 +926,7 @@ function html5blank_header_scripts()
         wp_register_script('modernizr-js', get_template_directory_uri() . '/js/modernizr.min.js', array('jquery'), '1.0.0', true);
         wp_enqueue_script('modernizr-js');
 
-        wp_register_script('scripts-js', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '2.0.2', true);
+        wp_register_script('scripts-js', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '2.0.3', true);
         wp_enqueue_script('scripts-js');
 
 

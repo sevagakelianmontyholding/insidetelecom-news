@@ -82,9 +82,14 @@ $prev_post = get_previous_post(true);
                                             </g>
                                         </svg>
                                     </a>
-                                    <a class="social social-linkedin"
 
-                                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $url ?>"
+                                    <?php
+                                    $linkedin_web = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $encoded_url;
+                                    $linkedin_app = 'linkedin://shareArticle?mini=true&url=' . $encoded_url;
+                                    ?>
+                                    <a class="social social-linkedin js-linkedin-share"
+                                        href="<?= esc_url($linkedin_web); ?>"
+                                        data-app-url="<?= esc_attr($linkedin_app); ?>"
                                         title="linkedin"
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -155,27 +160,25 @@ $prev_post = get_previous_post(true);
     </div> <!-- end content -->
 </div> <!-- end main container -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const linkedinBtn = document.querySelector('.social-linkedin');
+    document.addEventListener('click', function(event) {
+        const link = event.target.closest('.js-linkedin-share');
 
-        if (!linkedinBtn) return;
+        if (!link) return;
 
-        linkedinBtn.addEventListener('click', async function(e) {
-            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-            if (isMobile && navigator.share) {
-                e.preventDefault();
+        if (!isMobile) return;
 
-                try {
-                    await navigator.share({
-                        title: document.title,
-                        url: window.location.href
-                    });
-                } catch (err) {
-                    window.location.href = linkedinBtn.href;
-                }
-            }
-        });
+        event.preventDefault();
+
+        const appUrl = link.getAttribute('data-app-url');
+        const webUrl = link.getAttribute('href');
+
+        window.location.href = appUrl;
+
+        setTimeout(function() {
+            window.location.href = webUrl;
+        }, 900);
     });
 </script>
 <?php get_footer(); ?>

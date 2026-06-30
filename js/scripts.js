@@ -433,14 +433,14 @@
 
   /* Sticky Socials
   -------------------------------------------------------*/
-  (function () {
-    var $stickyCol = $('.sticky-col');
-    if ($stickyCol.length > 0) {
-      $stickyCol.stick_in_parent({
-        offset_top: 80
-      });
-    }
-  })();
+  // (function () {
+  //   var $stickyCol = $('.sticky-col');
+  //   if ($stickyCol.length > 0) {
+  //     $stickyCol.stick_in_parent({
+  //       offset_top: 80
+  //     });
+  //   }
+  // })();
 
 
   /* ---------------------------------------------------------------------- */
