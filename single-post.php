@@ -70,7 +70,12 @@ $prev_post = get_previous_post(true);
                                     <a class="social social-whatsapp" title="whatsapp" aria-label="whatsapp" href="https://api.whatsapp.com/send?text=<?= $url ?>" data-action="share/whatsapp/share" target="_blank">
                                         <i class="ui-whatsapp"></i>
                                     </a>
-                                    <a class="social social-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" title="facebook" target="_blank" aria-label="facebook">
+                                    <a class="social social-facebook"
+                                        href="https://www.facebook.com/sharer/sharer.php?u=<?= esc_attr($url); ?>"
+                                        title="facebook"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="facebook">
                                         <i class="ui-facebook"></i>
                                     </a>
                                     <a class="social social-x" href="https://x.com/intent/tweet?url=<?= $url ?>" title="twitter" target="_blank" aria-label="twitter">
