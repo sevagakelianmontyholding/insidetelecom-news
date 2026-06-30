@@ -82,7 +82,12 @@ $prev_post = get_previous_post(true);
                                             </g>
                                         </svg>
                                     </a>
-                                    <a class="social social-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=<?= $url ?>" title="linkedin" target="_blank" aria-label="linkedin">
+                                    <a class="social social-linkedin"
+                                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?= urlencode(get_permalink()); ?>"
+                                        title="linkedin"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="linkedin">
                                         <i class="ui-linkedin"></i>
                                     </a>
 
