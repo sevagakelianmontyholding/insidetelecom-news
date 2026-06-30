@@ -84,8 +84,8 @@ $prev_post = get_previous_post(true);
                                     </a>
 
                                     <?php
-                                    $linkedin_web = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $encoded_url;
-                                    $linkedin_app = 'linkedin://shareArticle?mini=true&url=' . $encoded_url;
+                                    $linkedin_web = 'https://www.linkedin.com/sharing/share-offsite/?url=' . $url;
+                                    $linkedin_app = 'linkedin://shareArticle?mini=true&url=' . $url;
                                     ?>
                                     <a class="social social-linkedin js-linkedin-share"
                                         href="<?= esc_url($linkedin_web); ?>"
