@@ -91,11 +91,8 @@ $prev_post = get_previous_post(true);
                                         href="<?= esc_url($linkedin_web); ?>"
                                         data-app-url="<?= esc_attr($linkedin_app); ?>"
                                         title="linkedin"
-                                        target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="linkedin">
-                                        <i class="ui-linkedin"></i>
-                                    </a>
 
                                 </div>
                             </div>
@@ -174,11 +171,29 @@ $prev_post = get_previous_post(true);
         const appUrl = link.getAttribute('data-app-url');
         const webUrl = link.getAttribute('href');
 
+        let didLeavePage = false;
+
+        const markPageHidden = function() {
+            didLeavePage = true;
+        };
+
+        document.addEventListener('visibilitychange', markPageHidden, {
+            once: true
+        });
+        window.addEventListener('pagehide', markPageHidden, {
+            once: true
+        });
+        window.addEventListener('blur', markPageHidden, {
+            once: true
+        });
+
         window.location.href = appUrl;
 
         setTimeout(function() {
-            window.location.href = webUrl;
-        }, 900);
+            if (!didLeavePage) {
+                window.location.href = webUrl;
+            }
+        }, 1200);
     });
 </script>
 <?php get_footer(); ?>
