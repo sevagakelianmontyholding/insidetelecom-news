@@ -65,27 +65,44 @@ $prev_post = get_previous_post(true);
                         <!-- Share -->
                         <div class="entry__share">
                             <div class="sticky-col">
-                                <?php $url = get_permalink(); ?>
+                                <?php
+                                $url = rawurlencode(get_permalink());
+                                $title = rawurlencode(get_the_title());
+                                ?>
+
                                 <div class="socials socials--rounded socials--large">
-                                    <a class="social social-whatsapp" title="whatsapp" aria-label="whatsapp" href="https://api.whatsapp.com/send?text=<?= $url ?>" data-action="share/whatsapp/share" target="_blank">
+
+                                    <a class="social social-whatsapp"
+                                        title="whatsapp"
+                                        aria-label="whatsapp"
+                                        href="https://api.whatsapp.com/send?text=<?= $url ?>"
+                                        data-action="share/whatsapp/share"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
                                         <i class="ui-whatsapp"></i>
                                     </a>
-                                    <a class="social social-facebook" href="http://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" title="facebook" target="_blank" aria-label="facebook">
+
+                                    <a class="social social-facebook"
+                                        href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>"
+                                        title="facebook"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="facebook">
                                         <i class="ui-facebook"></i>
                                     </a>
-                                    <a class="social social-x" href="https://x.com/intent/tweet?url=<?= $url ?>" title="twitter" target="_blank" aria-label="twitter">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="20px" height="20px">
-                                            <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-                                                <g transform="scale(5.12,5.12)">
-                                                    <path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </a>
-                                    <a class="social social-linkedin"
-                                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?= urlencode(get_permalink()); ?>"
-                                        title="linkedin"
+
+                                    <a class="social social-x"
+                                        href="https://x.com/intent/tweet?url=<?= $url ?>&text=<?= $title ?>"
+                                        title="twitter"
                                         target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="twitter">
+                                        <!-- your svg here -->
+                                    </a>
+
+                                    <a class="social social-linkedin"
+                                        href="https://www.linkedin.com/sharing/share-offsite/?url=<?= $url ?>"
+                                        title="linkedin"
                                         rel="noopener noreferrer"
                                         aria-label="linkedin">
                                         <i class="ui-linkedin"></i>
@@ -93,7 +110,7 @@ $prev_post = get_previous_post(true);
 
                                 </div>
                             </div>
-                        </div> <!-- share -->
+                        </div>
 
                         <div class="entry__article">
                             <?php if ($post->post_content) : ?>
