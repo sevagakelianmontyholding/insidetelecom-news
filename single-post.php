@@ -93,7 +93,7 @@ $prev_post = get_previous_post(true);
                                         title="linkedin"
                                         rel="noopener noreferrer"
                                         aria-label="linkedin">
-
+                                    </a>
                                 </div>
                             </div>
                         </div> <!-- share -->
