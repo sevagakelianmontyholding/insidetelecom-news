@@ -154,5 +154,4 @@ $prev_post = get_previous_post(true);
 
     </div> <!-- end content -->
 </div> <!-- end main container -->
-
 <?php get_footer(); ?>

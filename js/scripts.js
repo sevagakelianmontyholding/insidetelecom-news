@@ -492,3 +492,26 @@
   });
 
 })(jQuery);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const linkedinBtn = document.querySelector('.social-linkedin');
+
+    if (!linkedinBtn) return;
+
+    linkedinBtn.addEventListener('click', async function (e) {
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        if (isMobile && navigator.share) {
+            e.preventDefault();
+
+            try {
+                await navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                });
+            } catch (err) {
+                window.location.href = linkedinBtn.href;
+            }
+        }
+    });
+});
